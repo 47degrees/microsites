@@ -1,0 +1,15 @@
+name: MyLibrary
+description: "Mvessel: a JDBC driver written in Scala"
+markdown: redcarpet
+baseurl: /
+apidocs: /docs/
+style: default
+author: "47 Degrees"
+author_url: "http://47deg.com"
+github: "https://github.com/47deg/mvessel"
+license_name: The MIT License
+license_url: https://opensource.org/licenses/MIT
+
+collections:
+  tut:
+    output: true

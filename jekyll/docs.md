@@ -1,0 +1,5 @@
+---
+layout: docs
+---
+
+The documentation

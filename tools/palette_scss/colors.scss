@@ -1,0 +1,95 @@
+// Theme colors
+$brand-primary:                   #FFC107;
+$brand-secondary:                 #2C3358;
+$brand-tertiary:                  #212641;
+$gray-dark:                       #57585D;
+$gray:                            #96979C;
+$gray-light:                      #EBECF1;
+$gray-lighter:                    #F1F2F8;
+$white-color:                     #FFFFFF;
+
+
+
+$text-color:                      $gray;
+$headings-color:                  $gray-dark;
+$jumbotron-color:                 $white-color;
+$jumbotron-bg:                    $brand-secondary;
+$pre-bg:                          $gray-lighter;
+$pre-color:                       $gray-dark;
+$pre-border-color:                $gray-light;
+$headings-technologies-color:     rgba($white-color, 0.9);
+$text-technologies-color:         rgba($white-color, 0.4);
+$text-footer-color:               rgba($white-color, 0.3);
+$link-footer-color:               rgba($white-color, 0.6);
+
+
+// Technologies -----------------------------------------------------
+.technologies {
+    background: $brand-secondary;
+    h3 {
+        color: $headings-technologies-color;
+    }
+    p {
+        color: $text-technologies-color;
+    }
+}
+
+// Header -----------------------------------------------------
+#site-header {
+    .navbar-wrapper {
+        a {
+            color: #fff;
+        }
+    }
+}
+
+// Footer -----------------------------------------------------
+#site-footer {
+    background: $brand-tertiary;
+    p {
+        color: $text-footer-color;
+        a {
+            color: $link-footer-color;
+        }
+    }
+}
+
+
+// Scaffolding -----------------------------------------------------
+::-moz-selection {
+    background: $brand-primary;
+    color: $white-color;
+}
+
+::selection {
+    background: $brand-primary;
+    color: $white-color;
+}
+
+
+// Jumbotron -----------------------------------------------------
+.jumbotron {
+    background: url('images/jumbotron_pattern.png') fixed $jumbotron-bg;;
+    .btn-outline-inverse {
+        border: 2px solid $white-color;
+        color: $white-color;
+        &:hover,
+        &:focus {
+            background: $white-color;
+            color: $brand-secondary;
+        }
+    }
+}
+
+// Code -----------------------------------------------------
+pre {
+    background: rgba($pre-bg, 0.6);
+    code {
+        color: inherit;
+        background-color: transparent;
+    }
+    .hljs {
+        background: none;
+    }
+}
+
