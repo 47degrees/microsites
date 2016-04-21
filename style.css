@@ -6117,25 +6117,25 @@ pre {
       .technologies .database-icon-wrapper {
         margin-top: 26px; } }
   .technologies .scala-icon-wrapper {
-    background: url("../img/icon_scala.png") no-repeat; }
+    background: url("images/icon_scala.png") no-repeat; }
     @media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6 / 2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
       .technologies .scala-icon-wrapper {
         /* on retina, use image that's scaled by 2 */
-        background-image: url("../img/icon_scala2x.png");
+        background-image: url("images/icon_scala2x.png");
         background-size: 40px 40px; } }
   .technologies .android-icon-wrapper {
-    background: url("../img/icon_android.png") no-repeat; }
+    background: url("images/icon_android.png") no-repeat; }
     @media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6 / 2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
       .technologies .android-icon-wrapper {
         /* on retina, use image that's scaled by 2 */
-        background-image: url("../img/icon_android.png");
+        background-image: url("images/icon_android.png");
         background-size: 40px 40px; } }
   .technologies .database-icon-wrapper {
-    background: url("../img/icon_database.png"); }
+    background: url("images/icon_database.png"); }
     @media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6 / 2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
       .technologies .database-icon-wrapper {
         /* on retina, use image that's scaled by 2 */
-        background-image: url("../img/icon_database.png");
+        background-image: url("images/icon_database.png");
         background-size: 40px 40px; } }
   .technologies h3,
   .technologies p {

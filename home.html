@@ -41,7 +41,7 @@
             <nav class="text-right">
               <ul>
                 <li>
-                  <a href='#' onclick="javascript: window.location.href = '{{ site.github }}';">
+                  <a href="#" data-href="{{ site.github }}">
                     <i class="fa fa-github"></i>
                     <span class="hidden-xs">GitHub</span>
                   </a>
@@ -50,7 +50,7 @@
                 <li>
                   <a href="/docs">
                     <i class="fa fa-file-text"></i>
-                    <span class="hidden-xs">Scala Docs</span>
+                    <span class="hidden-xs">Documentation</span>
                   </a>
                 </li>
                 {% endif %}
@@ -61,12 +61,12 @@
         </div>
       </div>
     </div>
-    <div class="jumbotron" style="background-image:url('{{ site.baseurl }}jumbotron_pattern.png')">
+    <div class="jumbotron" style="background-image:url('https://cdn.rawgit.com/47deg/microsites/cdn/{{ site.name }}/jumbotron_pattern.png')">
       <div class="container">
         <h1 class="text-center">{{ site.description }}</h1>
         <h2></h2>
         <p class="text-center">
-          <a href='#' onclick="javascript: window.location.href = '{{ site.github }}';" class="btn btn-outline-inverse">View on GitHub</a>
+          <a href='#' data-href="{{ site.github }}" class="btn btn-outline-inverse">View on GitHub</a>
         </p>
       </div>
     </div>
@@ -101,12 +101,12 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-6">
-          <p>{{ site.name }} is design and development handcraft by <a href="{{ site.author_url }}">{{ site.author }}</a></p>
-          <p>Code licensed <a href="{{ site.license_url }}">{{ site.license_name }}</a></p>
+          <p>{{ site.name }} is design and development handcraft by <a href="http://www.47deg.com/" data-href="{{ site.author_url }}">{{ site.author }}</a></p>
+          <p>Code licensed <a href="https://opensource.org/licenses/MIT" data-href="{{ site.license_url }}">{{ site.license_name }}</a></p>
         </div>
         <div class="col-xs-6">
           <p class="text-right">
-            <a href="{{ site.github }}">
+            <a href="#" data-href="{{ site.github }}">
               <span class="fa fa-github"></span> View on Github
             </a>
           </p>
@@ -122,30 +122,14 @@
   <script>
     jQuery(document).ready(function() {
       hljs.initHighlightingOnLoad();
-      organizeContent();
+      activeLinks();
     });
 
-    // function organizeContent() {
-    //   var tuples = $('#content').find('ul');
-    //   tuples.each(function(index, el) {
-    //     if (index % 2) {
-    //       gridOdd($(el));
-    //     } else {
-    //       gridPair($(el));
-    //     }
-    //   });
-    //
-    // }
-    //
-    // function gridPair(ul) {
-    //   ul.children().first().addClass('col-md-5');
-    //   ul.children().last().addClass('col-md-6').addClass('col-md-offset-1');
-    // }
-    //
-    // function gridOdd(ul) {
-    //   ul.children().first().addClass('col-md-5').addClass('col-md-push-7');
-    //   ul.children().last().addClass('col-md-6').addClass('col-md-pull-5');
-    // }
+    function activeLinks() {
+      $('a[data-href]').each(function(index, el) {
+        $(this).attr('href', $(this).attr('data-href'));
+      });
+    }
   </script>
 </body>
 
