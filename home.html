@@ -14,11 +14,11 @@
   <meta name="description" content="{{ page.description }}">
   <meta name="author" content="{{ page.author }}">
   <link rel="apple-touch-icon" href="[INSERT apple-tuch-icon.png]">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/tomorrow.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link href="http://47deg.github.io/microsites/layout.css" rel="stylesheet">
-  <link href="http://47deg.github.io/microsites/palettes/{{ site.style }}.css" rel="stylesheet">
+  <!-- <link href="http://47deg.github.io/microsites/style.css" rel="stylesheet"> -->
+  <link href="{{ site.baseurl }}style.css" rel="stylesheet">
+  <link href="{{ site.baseurl }}default.css" rel="stylesheet">
 </head>
 
 <body>
@@ -32,8 +32,8 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-6">
-            <a href="#" class="brand">
-              <div class="icon-wrapper" style="background:url('{{ site.baseurl }}logo.png') no-repeat">
+            <a href="{{ site.baseurl }}" class="brand">
+              <div class="icon-wrapper" style="background:url('{{ site.baseurl }}navbar_brand.png') no-repeat">
                 <span>{{ site.name }}</span>
               </div>
             </a>
@@ -42,29 +42,32 @@
             <nav class="text-right">
               <ul>
                 <li>
-                  <a href="{{ page.description }}">
+                  <a href='#' onclick="javascript: window.location.href = '{{ site.github }}';">
                     <i class="fa fa-github"></i>
                     <span class="hidden-xs">GitHub</span>
                   </a>
                 </li>
+                {% if site.apidocs %}
                 <li>
-                  <a href="{{ site.apidocs }}">
+                  <a href="/docs">
                     <i class="fa fa-file-text"></i>
                     <span class="hidden-xs">Scala Docs</span>
                   </a>
                 </li>
+                {% endif %}
+
               </ul>
             </nav>
           </div>
         </div>
       </div>
     </div>
-    <div class="jumbotron">
+    <div class="jumbotron" style="background-image:url('{{ site.baseurl }}jumbotron_pattern.png')">
       <div class="container">
-        <h1 class="text-center">{{ page.description }}</h1>
+        <h1 class="text-center">{{ site.description }}</h1>
         <h2></h2>
         <p class="text-center">
-          <a href="{{page.github}}" class="btn btn-outline-inverse">View on GitHub</a>
+          <a href='#' onclick="javascript: window.location.href = '{{ site.github }}';" class="btn btn-outline-inverse">View on GitHub</a>
         </p>
       </div>
     </div>
@@ -72,7 +75,7 @@
   <main id="site-main">
     <section class="use">
       <div class="container">
-        <div class="row">
+        <div id="content" class="row">
           {{ content }}
         </div>
       </div>
@@ -99,12 +102,12 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-6">
-          <p>{{ site.name }} is design and development handcraft by <a href="{{ page.author_url }}">{{ page.author }}</a></p>
-          <p>Code licensed <a href="{{ page.license_url }}">{{ page.license_name }}</a></p>
+          <p>{{ site.name }} is design and development handcraft by <a href="{{ site.author_url }}">{{ site.author }}</a></p>
+          <p>Code licensed <a href="{{ site.license_url }}">{{ site.license_name }}</a></p>
         </div>
         <div class="col-xs-6">
           <p class="text-right">
-            <a href="{{ page.github }}">
+            <a href="{{ site.github }}">
               <span class="fa fa-github"></span> View on Github
             </a>
           </p>
@@ -120,7 +123,30 @@
   <script>
     jQuery(document).ready(function() {
       hljs.initHighlightingOnLoad();
+      organizeContent();
     });
+
+    // function organizeContent() {
+    //   var tuples = $('#content').find('ul');
+    //   tuples.each(function(index, el) {
+    //     if (index % 2) {
+    //       gridOdd($(el));
+    //     } else {
+    //       gridPair($(el));
+    //     }
+    //   });
+    //
+    // }
+    //
+    // function gridPair(ul) {
+    //   ul.children().first().addClass('col-md-5');
+    //   ul.children().last().addClass('col-md-6').addClass('col-md-offset-1');
+    // }
+    //
+    // function gridOdd(ul) {
+    //   ul.children().first().addClass('col-md-5').addClass('col-md-push-7');
+    //   ul.children().last().addClass('col-md-6').addClass('col-md-pull-5');
+    // }
   </script>
 </body>
 
