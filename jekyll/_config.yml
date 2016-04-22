@@ -1,12 +1,12 @@
-name: MyLibrary
-description: "Mvessel: a JDBC driver written in Scala"
+name: demo
+description: "A demo to show how microsites works"
 markdown: redcarpet
 baseurl: /
-apidocs: /docs/
+apidocs: /docs #Optional
 style: default
 author: "47 Degrees"
 author_url: "http://47deg.com"
-github: "https://github.com/47deg/mvessel"
+github: "https://github.com/47deg/microsites"
 license_name: The MIT License
 license_url: https://opensource.org/licenses/MIT
 

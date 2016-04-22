@@ -1,5 +1,5 @@
 ---
-layout: internal
+layout: home
 technologies:
  - scala: ["Scala", "Lorem ipsum dolor sit amet, conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolo…"]
  - android: ["Android", "Lorem ipsum dolor sit amet, conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolo…"]
@@ -7,51 +7,56 @@ technologies:
 ---
 
 
-* ## Create a SQLiteOpenHelper
-  Android comes with a helper class to manage the creation and version management of our database. This class is SQLiteOpenHelper. We can use this helper class to let Android platform create the database file for us and later access to that file through our JDBC driver or favorite ORM.
+* ## Feature one
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mollis, enim quis mollis blandit, orci urna lobortis eros, quis tristique quam tellus sit amet nulla. Vivamus congue est quis magna vehicula lobortis. Pellentesque suscipit lectus eu mi vehicula, sed vehicula lectus porta. Aenean tempor metus ac viverra tempus.
 
 * ```scala
-class ContactsOpenHelper(context: Context)
-      extends SQLiteOpenHelper(context, "database.db", javaNull, 1) {
-        def onCreate(db: SQLiteDatabase) {
-          // Use this method to initialize your database
-        }
+object repositories {
 
-        def onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) = {
-          // Use this method to upgrade your database
-        }
-}
-````
+      class Repository[F[_]](implicit D: DataSource[F]) {
+        def add[A](a: A): FreeC[F, Option[A]] = D.add(a)
+        def getAll[A]: FreeC[F, List[A]] = D.getAll
+      }
 
+      object Repository {
+        implicit def repository[F[_]]
+        (implicit D: DataSource[F]): Repository[F] = new Repository[F]
+      }
 
-* ## Use java.sql classes
-  If you want to work directly with the java.sql classes you could create a method in our SQLiteOpenHelper that returns the java.sql.Connection.
-
-* ```scala
-def openConnection() = {
-      // 1. This statement will create the database and trigger the `onCreate` and `onUpgrade` methods.
-      val database: SQLiteDatabase = getReadableDatabase()
-      // 2. Register the driver, making available for `java.sql`
-      com.fortysevendeg.mvessel.AndroidDriver.register()
-      // 3. Open a connection using the path provided by the database
-      DriverManager.getConnection("jdbc:sqlite:" + database.getPath)
-}
-````
+    }
+```
 
 
-* ## Use the Database class
-  You can directly create a connection with the Database class provided in the library. Again in your SQLiteOpenHelper:
+* ## Feature two
+  Morbi mollis molestie vulputate. Quisque interdum maximus fringilla. Mauris id ligula eu lacus egestas euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in velit a lacus pellentesque interdum. Suspendisse ipsum massa, convallis in venenatis eleifend, congue vitae tellus
 
 * ```scala
-def openDatabase() = {
-      // 1. This statement will create the database and trigger the `onCreate` and `onUpgrade` methods.
-      val database: SQLiteDatabase = getReadableDatabase()
-      // 2. Open the database using the path provided by the database
-      new Database[AndroidCursor](
-            databaseFactory = new AndroidDatabaseFactory,
-            name = database.getPath,
-            timeout = 50,
-            retry = 0,
-            flags = 0)
-}
-````
+  def or[F[_], G[_], H[_]]
+   (f: F ~> H, g: G ~> H):
+   ({type cp[α] = Coproduct[F, G, α]})#cp ~> H =
+      new NaturalTransformation[({type cp[α] =
+        Coproduct[F, G, α]})#cp, H] {
+          def apply[A](fa: Coproduct[F, G, A]): H[A] = fa.run match {
+            case -\/(ff) => f(ff)
+            case \/-(gg) => g(gg)
+          }
+    }
+```
+
+
+* ## Feature three
+  Integer ante diam, faucibus at venenatis ullamcorper, tincidunt sed enim. Praesent in ante consectetur, vestibulum metus vel, dignissim diam. Sed vestibulum ac felis scelerisque pellentesque:
+
+* ```scala
+    type AgendaApp[A] = Coproduct[DataOp, Interact, A]
+    type ACoyo[A] = Coyoneda[AgendaApp,A]
+    type AFree[A] = Free[ACoyo,A]
+
+    def prg(implicit CP : ContactsListPresenter[AgendaApp]) = for {
+        _ <- CP.onInitialize
+        _ <- Monad[AFree].replicateM(2, CP.onAddContactOptionSelected)
+        _ <- CP.onStop
+    } yield ()
+
+    def runApp = prg.mapSuspension(coyoint)
+```
