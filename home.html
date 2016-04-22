@@ -17,45 +17,31 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/tomorrow.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link href="https://rawgit.com/47deg/microsites/cdn/style.css" rel="stylesheet">
-  <link href="https://rawgit.com/47deg/microsites/cdn/demo/palette.css" rel="stylesheet">
-</head>
+  <link href="https://rawgit.com/47deg/microsites/cdn/{{ site.style }}/palette.css" rel="stylesheet"> </head>
 
 <body>
   <!--[if IE]>
     <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
   <header id="site-header">
     <div class="navbar-wrapper">
       <div class="container">
         <div class="row">
           <div class="col-xs-6">
             <a href="/" class="brand">
-              <div class="icon-wrapper" style="background:url('https://rawgit.com/47deg/microsites/cdn/{{ site.style }}/navbar_brand.png') no-repeat">
-                <span>{{ site.name }}</span>
-              </div>
+              <div class="icon-wrapper" style="background:url('https://rawgit.com/47deg/microsites/cdn/{{ site.style }}/navbar_brand.png') no-repeat"> <span>{{ site.name }}</span> </div>
             </a>
           </div>
           <div class="col-xs-6">
             <nav class="text-right">
               <ul>
                 <li>
-                  <a href="#" data-href="{{ site.github }}">
-                    <i class="fa fa-github"></i>
-                    <span class="hidden-xs">GitHub</span>
-                  </a>
-                </li>
-                {% if site.docs %}
+                  <a href="#" data-href="{{ site.github }}"> <i class="fa fa-github"></i> <span class="hidden-xs">GitHub</span> </a>
+                </li> {% if site.docs %}
                 <li>
-                  <a href="/docs">
-                    <i class="fa fa-file-text"></i>
-                    <span class="hidden-xs">Documentation</span>
-                  </a>
-                </li>
-                {% endif %}
-
-              </ul>
+                  <a href="/docs"> <i class="fa fa-file-text"></i> <span class="hidden-xs">Documentation</span> </a>
+                </li> {% endif %} </ul>
             </nav>
           </div>
         </div>
@@ -65,35 +51,24 @@
       <div class="container">
         <h1 class="text-center">{{ site.description }}</h1>
         <h2></h2>
-        <p class="text-center">
-          <a href='#' data-href="{{ site.github }}" class="btn btn-outline-inverse">View on GitHub</a>
-        </p>
+        <p class="text-center"> <a href='#' data-href="{{ site.github }}" class="btn btn-outline-inverse">View on GitHub</a> </p>
       </div>
     </div>
   </header>
   <main id="site-main">
     <section class="use">
       <div class="container">
-        <div id="content" class="row">
-          {{ content }}
-        </div>
+        <div id="content" class="row"> {{ content }} </div>
       </div>
     </section>
     <section class="technologies">
       <div class="container">
-        <div class="row">
-
-          {% for tech_hash in page.technologies %} {% for tech in tech_hash %}
-
+        <div class="row"> {% for tech_hash in page.technologies %} {% for tech in tech_hash %}
           <div class="col-md-4">
             <div class="{{ tech[0] }}-icon-wrapper"></div>
             <h3>{{ tech[1][0] }}</h3>
             <p>{{ tech[1][1] }}</p>
-          </div>
-
-          {% endfor %} {% endfor %}
-
-        </div>
+          </div> {% endfor %} {% endfor %} </div>
       </div>
     </section>
   </main>
@@ -106,9 +81,7 @@
         </div>
         <div class="col-xs-6">
           <p class="text-right">
-            <a href="#" data-href="{{ site.github }}">
-              <span class="fa fa-github"></span> View on Github
-            </a>
+            <a href="#" data-href="{{ site.github }}"> <span class="fa fa-github"></span> View on Github </a>
           </p>
         </div>
       </div>
@@ -118,7 +91,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/languages/scala.min.js"></script>
-
   <script>
     jQuery(document).ready(function() {
       hljs.initHighlightingOnLoad();
