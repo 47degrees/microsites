@@ -1,1 +1,0 @@
-# microsites and cdn resources
