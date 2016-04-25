@@ -39,6 +39,10 @@ pre {
 body.docs {
   background: #F4F4F4; }
 
+#content code {
+  color: #808088;
+  background-color: #F4F4F4; }
+
 #sidebar-wrapper {
   background: #273841; }
 
