@@ -26,7 +26,7 @@
     <div id="sidebar-wrapper">
       <ul id="sidebar" class="sidebar-nav">
         <li class="sidebar-brand">
-          <a href="/">
+          <a href="#" data-href="/microsites/">
             <div class="brand-wrapper" style="background:url('https://rawgit.com/47deg/microsites/cdn/default/sidebar_brand.png') no-repeat">
               <span>MyDemo</span>
             </div>
@@ -167,6 +167,7 @@ object repositories {<span class="sb">
 
   <script>
     jQuery(document).ready(function() {
+      activeLinks();
       loadStyle();
       hljs.initHighlightingOnLoad();
       activeToggle();
@@ -277,6 +278,12 @@ object repositories {<span class="sb">
       });
     }
 
+    function activeLinks() {
+      $('a[data-href]').each(function(index, el) {
+        $(this).attr('href', $(this).attr('data-href'));
+      });
+    }
+
     var baseURL = window.location.href;
 
     function shareSiteFacebook() {
@@ -325,3 +332,5 @@ object repositories {<span class="sb">
 
 
 <!-- https://cdn.rawgit.com/47deg/microsites/cdn/docs.html -->
+<!-- https://rawgit.com/47deg/microsites/cdn/docs.html -->
+<!-- http://localhost/~rafaparadela/cdn47/microsites/docs.html -->
