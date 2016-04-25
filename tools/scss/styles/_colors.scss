@@ -78,6 +78,11 @@ body.docs {
     background: $gray-lighter;
 }
 
+#content code {
+        color: $gray;
+        background-color: $gray-lighter;
+}
+
 #sidebar-wrapper {
     background: $brand-secondary;
 }

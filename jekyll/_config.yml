@@ -1,15 +1,11 @@
-name: demo
-description: "A demo to show how microsites works"
-markdown: redcarpet
-baseurl: /
-apidocs: /docs #Optional
+name: Microsites
+description: "It enriches your library with a fancy documentation site"
+github_owner: 47deg
+baseurl: /microsites
 style: default
-author: "47 Degrees"
-author_url: "http://47deg.com"
-github: "https://github.com/47deg/microsites"
-license_name: The MIT License
-license_url: https://opensource.org/licenses/MIT
+docs: true
 
+markdown: redcarpet
 collections:
   tut:
     output: true
