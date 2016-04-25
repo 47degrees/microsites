@@ -17,7 +17,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/tomorrow.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link href="https://rawgit.com/47deg/microsites/cdn/style.css" rel="stylesheet">
-  <link href="https://rawgit.com/47deg/microsites/cdn/{{ site.style }}/palette.css" rel="stylesheet">
 </head>
 
 <body class="docs">
@@ -30,7 +29,7 @@
     <div id="sidebar-wrapper">
       <ul id="sidebar" class="sidebar-nav">
         <li class="sidebar-brand">
-          <a href="/">
+          <a href="#" data-href="{{ site.baseurl }}/">
             <div class="brand-wrapper" style="background:url('https://rawgit.com/47deg/microsites/cdn/{{ site.style }}/sidebar_brand.png') no-repeat">
               <span>{{ site.name }}</span>
             </div>
@@ -70,11 +69,21 @@
 
   <script>
     jQuery(document).ready(function() {
+      activeLinks();
+      loadStyle();
       hljs.initHighlightingOnLoad();
       activeToggle();
       organizeContent();
       loadGitHubStats();
     });
+
+    function loadStyle() {
+      $("<link/>", {
+        rel: "stylesheet",
+        type: "text/css",
+        href: "https://rawgit.com/47deg/microsites/cdn/{{ site.style }}/palette.css"
+      }).appendTo("head");
+    }
 
     function organizeContent() {
       var content = $('#content');
@@ -168,6 +177,12 @@
       $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
+      });
+    }
+
+    function activeLinks() {
+      $('a[data-href]').each(function(index, el) {
+        $(this).attr('href', $(this).attr('data-href'));
       });
     }
 
