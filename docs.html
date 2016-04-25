@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>MyDemo</title>
+  <title>Microsites</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -28,7 +28,7 @@
         <li class="sidebar-brand">
           <a href="#" data-href="/microsites/">
             <div class="brand-wrapper" style="background:url('https://rawgit.com/47deg/microsites/cdn/default/sidebar_brand.png') no-repeat">
-              <span>MyDemo</span>
+              <span>Microsites</span>
             </div>
           </a>
         </li>
@@ -56,7 +56,7 @@
       <!--Heading-->
       <div id="content"><h1>What is a microsite?</h1>
 
-<p>A microsite is an instance of Jekyll, ready to publish static sites for your new library. Some of the benefits of having these auto-generated web pages are:</p>
+<p>A microsite is an instance of Jekyll, ready to publish a static web page for your new library. Some of the benefits of having these auto-generated web pages are:</p>
 
 <ul>
 <li>You can write documentation easily in markdown format.</li>
@@ -73,31 +73,28 @@
 
 <h1>How to start?</h1>
 
-<p>You need only address a few steps to have a microsite in your repo:</p>
+<p>You only need address a few steps to have a microsite in your repo:</p>
 
-<h4>Copy the template:</h4>
+<h2>Copy the template</h2>
 
-<p>Copy the content of the directory <a href="https://github.com/47deg/microsites/tree/master/jekyll">Jekyll</a> locally.</p>
+<p>Copy the content of the directory <a href="https://github.com/47deg/microsites/tree/master/jekyll">Jekyll</a> locally. If your library is a <em>SBT</em> project you will want to choose <code>docs/src/jekyll</code> as the destination folder. (<em>FYI: We are working on developing a SBT plugin to do that automatically with a SBT task</em>)</p>
 
-<h4>Set parameters:</h4>
+<h2>Set parameters</h2>
 
 <p>Edit <code>_config.yml</code> file to set the parameters of your microsite:</p>
 <div class="highlight"><pre><code class="language-" data-lang="">name: &lt;NAME_OF_YOUR_LIBRARY&gt;
 description: "&lt;DESCRIPTION_OF_YOUR_LIBRARY&gt;"
-style: &lt;STYLE_NAME e.g. default&gt;
-github: &lt;GITHUB_REPO_URL e.g. https://github.com/47deg/microsites&gt;
+github_owner: 47deg
+baseurl: /microsites
+style: default
 docs: false
-
-author: "47 Degrees"
-author_url: http://47deg.com
-license_name: The MIT License
-license_url: https://opensource.org/licenses/MIT
 markdown: redcarpet
 collections:
   tut:
     output: true
+
 </code></pre></div>
-<h4>Fill home content</h4>
+<h2>Fill home content</h2>
 
 <p>Edit the file <code>index.md</code>:</p>
 
@@ -152,9 +149,86 @@ object repositories {<span class="sb">
 <p><img src="http://rafp.es/1NFbsb5" alt=""></p></li>
 </ul>
 
-<h2>Add <em>Docs</em> page (optional)</h2>
+<h2>The docs page (optional)</h2>
 
-<p>If you want to include a documentation page, set the parameter <code>docs</code> to <code>true</code> in the file <code>_config.yml</code>. You also have to write the sections into the file <code>docs.md</code> following some conventions:</p>
+<p>If you want to include a documentation page, you should set the parameter <code>docs</code> to <code>true</code> in the file <code>_config.yml</code>. You also have to write the sections into the file <code>docs.md</code> keeping in mind only one detail: headers <code>#</code> and <code>##</code> not only will produce html <code>h1</code> and <code>h2</code> items but also will generate items in the sidebar menu.</p>
+
+<h1>Customize your microsite</h1>
+
+<p>Although common resources are retrieving from a <a href="https://github.com/47deg/microsites/tree/cdn">CDN</a>, you can customize your microsite easily. Just create a directory in <a href="https://github.com/47deg/microsites/tree/cdn">CDN branch</a> with the same name that you have set the parameter <code>style</code> in the <code>_config.yml</code> file. As you can see, the <code>style</code> parameter has been set to <code>default</code> value, so logos and palette of colours are retrieving from the <code>default</code> folder in the branch. Once created your folder, you have to provide these files within:</p>
+
+<ul>
+<li><code>navbar_brand.png</code> and <code>sidebar_brand.png</code>: Logos for home and docs pages.</li>
+<li><code>jumbotron_pattern.png</code>: Background pattern for home&#39;s jumbotron.</li>
+<li><code>palette.css</code>: Color rules that overrides default ones.</li>
+</ul>
+
+<p>The proper protocol to address these steps is, firstly create a issue for providing these resources and assign it to the design department, and then set the <code>style</code> parameter in your <code>_config.yml</code> file.</p>
+
+<h1>Test it locally</h1>
+
+<p>You can monitor how looks your microsite in every moment, just running the command <code>jekyll server</code> and next open <code>http://127.0.0.1:4000/&lt;base_url&gt;/</code> in your browser.</p>
+
+<p>We are assuming you have installed Jekyll, otherwise you can <a href="https://jekyllrb.com/docs/installation/">do it thus</a>: <code>gem install jekyll</code>.</p>
+
+<h1>Deploy the microsite</h1>
+
+<h2>Non-Scala projects</h2>
+
+<p>Usually, Github is able to compile Jekyll sites for deploying in <code>gh-pages</code> branch so in a general context the only step to do would be pushing the microsite directly in the <code>gh-pages</code> of your repo. However, GitHub doesn&#39;t compile Jekyll plugins and consequently it&#39;d ignore the feature for retrieving remote layouts from our CDN.</p>
+
+<p>For that reason we have to push static files after compiling:</p>
+
+<ul>
+<li>Run <code>jekyll server</code>.</li>
+<li>Copy de content of the auto-generated folder: <code>_site</code> (It should only contain the files <code>home.html</code> and <code>docs.html</code>).</li>
+<li>Paste both files in the <code>gh-pages</code> brach of you repo and push them.</li>
+</ul>
+
+<p>You should be able to open the site: <code>http://47deg.github.io/&lt;base_url&gt;</code>.</p>
+
+<h2>Scala projects</h2>
+
+<h3>Step 1: Create a new sbt project called <em>docs</em>:</h3>
+
+<p>Edit <code>Build.scala</code> (or <code>build.sbt</code>) for adding:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">lazy val docs = (project in file("docs"))
+  .settings(moduleName := "your-library-docs")
+  .settings(docsSettings: _*)
+</code></pre></div>
+<p>Where <code>docsSettings</code> could be the standard settings parameters as <code>organization</code>, <code>organizationName</code>, etc. Maybe it&#39;s interesting to set parameters in order to avoid publishing:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">Seq(
+    publish := (),
+    publishLocal := (),
+    publishArtifact := false)
+</code></pre></div>
+<h3>Step 2: Install <code>sbt-site</code>:</h3>
+
+<p>This great <a href="https://github.com/sbt/sbt-site">plugin</a> generates project websites from static content, Jekyll, Sphinx, Pamflet, Nanoc, GitBook, and/or Asciidoctor, and can optionally include generated ScalaDoc.</p>
+
+<ul>
+<li>Add <code>addSbtPlugin(&quot;com.typesafe.sbt&quot; % &quot;sbt-site&quot; % &quot;0.8.1&quot;)</code> in <code>plugins.sbt</code> file.</li>
+<li>Add <code>enablePlugins(JekyllPlugin)</code> in the <code>docsSettings</code> mentioned above.</li>
+</ul>
+
+<p>Once done, you can compile the Jekyll microsite just with the task <code>makeSite</code> when the sbt project <code>docs</code> is active.</p>
+
+<h3>Step 2: Install <code>sbt-ghpages</code>:</h3>
+
+<p><a href="https://github.com/sbt/sbt-ghpages">This plugin</a> moves the static site auto-generated by <code>sbt-site</code> into <code>gh-pages</code> branch, assuming that this branch already exists in your repo.</p>
+
+<ul>
+<li><p>Add these plugins in <code>plugins.sbt</code> file.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">addSbtPlugin("com.typesafe.sbt" % "sbt-ghpages" % "0.5.4" exclude("com.typesafe.sbt", "sbt-git"))
+addSbtPlugin("com.typesafe.sbt" % "sbt-git" % "0.8.5")
+</code></pre></div></li>
+<li><p>Add these config settings in the previously mentioned <code>docsSettings</code>:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">ghpages.settings ++
+Seq(git.remoteRepo := "git@github.com:47deg/&lt;YOUR_REPO_NAME&gt;.git")
+</code></pre></div></li>
+</ul>
+
+<p>Once added this plugin, the task <code>ghpages-push-site</code> will push the site.</p>
 </div>
 
 
@@ -287,12 +361,12 @@ object repositories {<span class="sb">
     var baseURL = window.location.href;
 
     function shareSiteFacebook() {
-      var title = 'MyDemo: A demo to show how microsites work';
+      var title = 'Microsites: It enriches your library with a fancy documentation site';
       launchPopup('http://www.facebook.com/sharer/sharer.php?u='+baseURL+'&t=' + title);
     }
 
     function shareSiteTwitter() {
-      var text = 'MyDemo: A demo to show how microsites work '+baseURL;
+      var text = 'Microsites: It enriches your library with a fancy documentation site '+baseURL;
       launchPopup('https://twitter.com/home?status=' + text);
       return false;
     }
