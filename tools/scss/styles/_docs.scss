@@ -51,20 +51,27 @@
                     font-size: 14px;
                 }
             }
-
         }
-
-
-
     }
     section {
         background: #fff;
         margin: 30px;
         @include border-radius(2px);
         padding: 30px;
-
+        a {
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
         a:focus {
-          outline:0;
+            outline: 0;
         }
         // Code
         // -----------------------------------------------------
@@ -112,14 +119,11 @@
             display: block;
             text-decoration: none;
             color: rgba(255, 255, 255, 0.7);
-
-
             &.active {
                 padding-left: 21px;
                 color: #fff;
-
                 i {
-                   @include rotate(90deg);
+                    @include rotate(90deg);
                 }
             }
             &:hover {
@@ -133,30 +137,22 @@
             }
             > span {
                 float: right;
-
                 > i {
-                  @include transition(0.4s);
+                    @include transition(0.4s);
                 }
             }
-
-
-
         }
         ul {
             padding: 0;
             margin: 0;
             li {
                 list-style: none;
-
                 a {
-                     color: rgba(255, 255, 255, 0.7);
-                     display: block;
-                     padding: 0 24px 0 40px;
-
-
-
+                    color: rgba(255, 255, 255, 0.7);
+                    display: block;
+                    padding: 0 24px 0 40px;
                     &:hover,
-                    &:active{
+                    &:active {
                         text-decoration: none;
                         color: #fff;
                     }
@@ -165,13 +161,11 @@
         }
     }
     ul.sub_section {
-      display: none;
+        display: none;
     }
-
     .active {
-      display: block;
+        display: block;
     }
-
     > .sidebar-brand {
         font-size: 18px;
         margin-bottom: 16px;
