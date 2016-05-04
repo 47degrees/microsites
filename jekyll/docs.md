@@ -122,7 +122,7 @@ The proper protocol to address these steps is, firstly create a issue for provid
 
 You can monitor how looks your microsite in every moment, just running the command `jekyll server` and next open `http://127.0.0.1:4000/<base_url>/` in your browser.
 
-We are assuming you have installed Jekyll, otherwise you can [do it thus](https://jekyllrb.com/docs/installation/): `gem install jekyll`.
+We are assuming you have installed Jekyll, otherwise you can [do it thus](https://jekyllrb.com/docs/installation/): `gem install jekyll nokogiri redcarpet` _(Nokogiri and Redcarpet are required plugins)_.
 
 # Deploy the microsite
 
