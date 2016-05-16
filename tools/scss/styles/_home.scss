@@ -98,16 +98,31 @@
     }
     .android-icon-wrapper {
         background: url('images/icon_android.png') no-repeat;
-        @include image-2x('images/icon_android.png',
+        @include image-2x('images/icon_android2x.png',
         40px,
         40px);
     }
     .database-icon-wrapper {
         background: url('images/icon_database.png');
-        @include image-2x('images/icon_database.png',
+        @include image-2x('images/icon_database2x.png',
         40px,
         40px);
     }
+    
+    .cats-icon-wrapper {
+        background: url('images/icon_cat.png');
+        @include image-2x('images/icon_cat2x.png',
+        40px,
+        40px);
+    }
+    
+    .fp-icon-wrapper {
+        background: url('images/icon_functional_programming.png');
+        @include image-2x('images/icon_functional_programming2x.png',
+        40px,
+        40px);
+    }
+    
     h3,
     p {
         padding-left: 60px
@@ -128,11 +143,13 @@
 // Use
 // -----------------------------------------------------
 .use {
+    
+    padding-top: ($section-padding / 3.3);
+    padding-bottom: ($section-padding / 1.8);
+    
     ul {
         padding-left: 0;
         margin: 0;
-        padding-top: ($section-padding / 3.3);
-        padding-bottom: ($section-padding / 1.8);
         @extend .clearfix;
         @media screen and (min-width: $screen-md-min) {
             padding-top: $section-padding;
@@ -145,7 +162,11 @@
             }
         }
     }
+    
+    
     ul:nth-child(2n+1) {
+        padding-top: ($section-padding / 3.3);
+        padding-bottom: ($section-padding / 1.8);
         li:first-child {
             @extend .col-md-4;
         }
