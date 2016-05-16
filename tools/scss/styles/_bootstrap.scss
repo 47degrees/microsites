@@ -72,7 +72,7 @@ pre {
         border-radius: 0;
     }
     .hljs {
-        padding: ($line-height-computed * 1.3);
+        padding: $line-height-computed;
         background: none;
     }
 }

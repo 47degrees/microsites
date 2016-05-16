@@ -80,7 +80,10 @@
     padding-bottom: ($section-padding / 2);
     .scala-icon-wrapper,
     .android-icon-wrapper,
-    .database-icon-wrapper {
+    .database-icon-wrapper,
+    .cats-icon-wrapper,
+    .fp-icon-wrapper
+    {
         float: left;
         margin-top: 0;
         width: 40px;
@@ -144,10 +147,9 @@
 // -----------------------------------------------------
 .use {
     
-    padding-top: ($section-padding / 3.3);
-    padding-bottom: ($section-padding / 1.8);
-    
     ul {
+        padding-top: ($section-padding / 3.3);
+        padding-bottom: ($section-padding / 1.8);
         padding-left: 0;
         margin: 0;
         @extend .clearfix;
@@ -165,8 +167,6 @@
     
     
     ul:nth-child(2n+1) {
-        padding-top: ($section-padding / 3.3);
-        padding-bottom: ($section-padding / 1.8);
         li:first-child {
             @extend .col-md-4;
         }
@@ -186,7 +186,6 @@
         }
     }
 }
-
 
 
 
