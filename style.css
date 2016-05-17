@@ -5928,7 +5928,7 @@ pre {
     -ms-border-radius: 2px;
     -o-border-radius: 2px;
     padding: 30px; }
-    #page-content-wrapper section a:hover {
+    #page-content-wrapper section a:hover, #page-content-wrapper section a:focus {
       text-decoration: none; }
     #page-content-wrapper section a:focus {
       outline: 0; }
