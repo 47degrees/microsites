@@ -59,10 +59,10 @@
         @include border-radius(2px);
         padding: 30px;
         a {
-           
-                &:hover {
-                    text-decoration: none;
-                }
+            &:hover,
+            &:focus {
+                text-decoration: none;
+            }
         }
         a:focus {
             outline: 0;
