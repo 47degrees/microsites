@@ -163,7 +163,7 @@ Seq(
 
 This great [plugin](https://github.com/sbt/sbt-site) generates project websites from static content, Jekyll, Sphinx, Pamflet, Nanoc, GitBook, and/or Asciidoctor, and can optionally include generated ScalaDoc.
 
-- Add `addSbtPlugin("com.typesafe.sbt" % "sbt-site" % "0.8.1")` in `plugins.sbt` file.
+- Add `addSbtPlugin("com.typesafe.sbt" % "sbt-site" % "1.0.0")` in `plugins.sbt` file.
 - Add `enablePlugins(JekyllPlugin)` in the `docsSettings` mentioned above.
 
 Once done, you can compile the Jekyll microsite just with the task `makeSite` when the sbt project `docs` is active.
