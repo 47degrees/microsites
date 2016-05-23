@@ -58,6 +58,11 @@
         margin: 30px;
         @include border-radius(2px);
         padding: 30px;
+
+        h1 {
+          margin-top: 0px;
+        }
+
         a {
             &:hover,
             &:focus {
@@ -82,12 +87,10 @@
                 font-size: inherit;
                 color: inherit;
                 white-space: pre-wrap;
-                background-color: transparent;
                 border-radius: 0;
             }
             .hljs {
-                padding: $line-height-computed;
-                background: none;
+                padding: 10px;
             }
         }
     }

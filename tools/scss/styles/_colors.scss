@@ -60,27 +60,18 @@
 
 
 // Code -----------------------------------------------------
-pre {
-    background: rgba($gray-lighter, 0.6);
-    code {
-        color: inherit;
-        background-color: transparent;
-    }
-    .hljs {
-        background: none;
-    }
-}
 
+#content {
+  code:not(.hljs) {
+        color: $gray;
+        background-color: $gray-lighter;
+      }
+}
 
 //DOCS
 
 body.docs {
     background: $gray-lighter;
-}
-
-#content code {
-        color: $gray;
-        background-color: $gray-lighter;
 }
 
 #sidebar-wrapper {

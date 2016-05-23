@@ -3,6 +3,7 @@ description: "It enriches your library with a fancy documentation site"
 github_owner: 47deg
 baseurl: /microsites
 style: default
+highlight_theme: tomorrow
 docs: true
 
 markdown: redcarpet
