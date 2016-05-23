@@ -28,20 +28,12 @@
 .use ul {
   border-bottom: 1px solid #EBEAF1; }
 
-pre {
-  background: rgba(244, 243, 249, 0.6); }
-  pre code {
-    color: inherit;
-    background-color: transparent; }
-  pre .hljs {
-    background: none; }
+#content code:not(.hljs) {
+  color: #8D8C92;
+  background-color: #F4F3F9; }
 
 body.docs {
   background: #F4F3F9; }
-
-#content code {
-  color: #8D8C92;
-  background-color: #F4F3F9; }
 
 #sidebar-wrapper {
   background: #2F2859; }

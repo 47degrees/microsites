@@ -11,10 +11,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>{{ site.name }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{{ page.description }}">
+  <meta name="description" content="{{ site.description }}">
   <meta name="author" content="{{ page.author }}">
-  <link rel="apple-touch-icon" href="[INSERT apple-tuch-icon.png]">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/tomorrow.min.css">
+  <link rel="icon" type="image/png" href="http://www.47deg.com/assets/img/custom/favicon.png" />
+  <meta property="og:image" content="https://rawgit.com/47deg/microsites/cdn/{{ site.style }}/poster.png"/>
+  <meta name="twitter:image" content="https://rawgit.com/47deg/microsites/cdn/{{ site.style }}/poster.png" />
+  <meta property="og:title" content="{{ site.name }}"/>
+  <meta property="og:site_name" content="{{ site.name }}"/>
+  <meta property="og:url" content="http://47deg.github.io{{ site.baseurl }}"/>
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="{{ site.description }}"/>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@47deg">
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link href="https://rawgit.com/47deg/microsites/cdn/style.css" rel="stylesheet">
 </head>
@@ -70,6 +79,7 @@
   <script>
     jQuery(document).ready(function() {
       activeLinks();
+      loadHighlight();
       loadStyle();
       hljs.initHighlightingOnLoad();
       activeToggle();
@@ -82,6 +92,14 @@
         rel: "stylesheet",
         type: "text/css",
         href: "https://rawgit.com/47deg/microsites/cdn/{{ site.style }}/palette.css"
+      }).appendTo("head");
+    }
+
+    function loadHighlight() {
+      $("<link/>", {
+        rel: "stylesheet",
+        type: "text/css",
+        href: "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/{{site.highlight_theme}}.min.css"
       }).appendTo("head");
     }
 
