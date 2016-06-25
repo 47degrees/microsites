@@ -18,11 +18,11 @@
   <meta name="twitter:image" content="{{ site.cdn.url }}/{{ site.style }}/poster.png" />
   <meta property="og:title" content="{{ site.name }}"/>
   <meta property="og:site_name" content="{{ site.name }}"/>
-  <meta property="og:url" content="http://47deg.github.io{{ site.baseurl }}/"/>
+  <meta property="og:url" content="{{ site.url }}/"/>
   <meta property="og:type" content="website" />
   <meta property="og:description" content="{{ site.description }}"/>
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@47deg">
+  <meta name="twitter:site" content="{{ site.twitter }}">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
@@ -90,7 +90,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-6">
-          <p>{{ site.name }} is designed and developed by <a href="http://www.47deg.com/" target="_blank">47 Degrees</a></p>
+          <p>{{ site.name }} is designed and developed by <a href="{{ site.organization.url }}" target="_blank">{{ site.organization.name }}</a></p>
         </div>
         <div class="col-xs-6">
           <p class="text-right">
