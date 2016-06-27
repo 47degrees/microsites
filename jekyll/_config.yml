@@ -4,6 +4,7 @@ github_owner: 47deg
 url: http://47deg.github.io/microsites
 baseurl: /microsites
 style: default
+highlight_theme: tomorrow
 docs: true
 
 markdown: redcarpet
