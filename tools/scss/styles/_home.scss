@@ -12,7 +12,7 @@
         left: 0;
         z-index: 20;
         .brand {
-            font-size: $font-size-large;
+            font-size: ($font-size-large - 1);
             .icon-wrapper {
                 position: relative;
                 width: 44px;
@@ -23,6 +23,7 @@
                 44px);
                 span {
                     position: absolute;
+									  white-space: nowrap;
                     top: 5px;
                     left: 55px;
                     z-index: 30;
