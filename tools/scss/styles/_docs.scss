@@ -161,7 +161,7 @@
         display: block;
     }
     > .sidebar-brand {
-        font-size: 18px;
+        font-size: 17px;
         margin-bottom: 16px;
         a {
             padding: 20px 24px;
@@ -179,6 +179,7 @@
                     top: 0;
                     left: 42px;
                     z-index: 30;
+									white-space: nowrap;
                 }
             }
         }
