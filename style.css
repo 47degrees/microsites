@@ -5845,8 +5845,8 @@ body {
       background: #fff; }
   @media screen and (min-width: 768px) {
     .jumbotron {
-      padding-top: 240px;
-      padding-bottom: 184px; } }
+      padding-top: 160px;
+      padding-bottom: 92px; } }
 
 pre {
   padding: 0;
